@@ -8,3 +8,6 @@ it also has warning if you forgot your threat buff
 You will need to create macro like 
 /run PaladinTaunt() 
 
+Based on Shagu tutorial https://github.com/shagu/wow-vanilla-api/blob/master/tutorial/tutorial-01-enUS.md
+and LazyPig addon https://github.com/Lexiebean/_LazyPig
+Super macro addon
