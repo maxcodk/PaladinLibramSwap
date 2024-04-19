@@ -1,0 +1,6 @@
+## Interface: 11200
+## Title: PaladinTankHelper
+## Version: 1.0
+## Author: Svarrog
+
+PaladinTankHelper.lua
