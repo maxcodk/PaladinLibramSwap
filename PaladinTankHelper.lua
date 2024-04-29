@@ -114,6 +114,24 @@ function PaladinTaunt()
         end
 end
 
+function CancelBuff(buff)
+    local counter = 0
+    while GetPlayerBuff(counter) >= 0 do
+        local index, untilCancelled = GetPlayerBuff(counter)
+        if untilCancelled ~= 1 then
+            local texture = GetPlayerBuffTexture(index);
+            if texture then                 
+                if string.find(texture, buff) then
+                    CancelPlayerBuff(index);
+                    return
+                end
+            end
+        end
+        counter = counter + 1
+    end
+    return nil
+end
+
 function PaladinConsecration()
     CastEquipByName("Consecration","Libram of the Faithful");    
 end
@@ -126,7 +144,13 @@ function PaladinCrusaderStrike()
     CastEquipByName("Crusader Strike","Libram of Truth");
 end
 
-
+function PaladinBubble()
+    if not PlayerHasBuff("DivineIntervention") then
+        CastSpellByName("Divine Shield");
+    else
+        CancelBuff("DivineIntervention");
+    end
+end
 
 
 --salva remove part
