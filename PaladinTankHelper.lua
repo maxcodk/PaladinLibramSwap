@@ -1,4 +1,4 @@
-function PlayerHasBuff(buffText)
+local function PlayerHasBuff(buffText)
     local i, s = 0, 0
     while 1 do
         buff = GetPlayerBuff(i, "HELPFUL")
@@ -13,7 +13,7 @@ function PlayerHasBuff(buffText)
     return false
 end
 
-function UnitHasDebuff(unit, debuffText)
+local function UnitHasDebuff(unit, debuffText)
     for i = 1, 40 do
         local debuff = UnitDebuff(unit, i)
         if debuff then
@@ -25,7 +25,7 @@ function UnitHasDebuff(unit, debuffText)
     return false
 end
 
-function FindItem(item)
+local function FindItem(item)
     if ( not item ) then return; end
     item = string.lower(ItemLinkToName(item));
     local link;
@@ -54,7 +54,7 @@ function FindItem(item)
     return bag, slot, texture, totalcount;
 end
 
-function UseItemByName(item)
+local function UseItemByName(item)
     local bag,slot = FindItem(item);
     if ( not bag ) then return; end;
     if ( slot ) then
@@ -66,7 +66,7 @@ function UseItemByName(item)
     end
 end
 
-function SpellReady(spell)
+local function SpellReady(spell)
     local i,a=0
     while a~=spell do 
         i=i+1 
@@ -77,7 +77,7 @@ function SpellReady(spell)
     end
 end
 
-function checkLibramEquip(checkedLibram)
+local function checkLibramEquip(checkedLibram)
     local libramLink = GetInventoryItemLink("player",18);
     if string.find(libramLink, checkedLibram) then
         return true
@@ -86,7 +86,7 @@ function checkLibramEquip(checkedLibram)
     end
 end
 
-function CastEquipByName(spellname,itemName)
+local function CastEquipByName(spellname,itemName)
     local spellname_no_rank = spellname;
     if spellname == "Consecration(Rank 1)" then
         spellname_no_rank = "Consecration"
@@ -114,7 +114,7 @@ function PaladinTaunt()
         end
 end
 
-function CancelBuff(buff)
+local function CancelBuff(buff)
     local counter = 0
     while GetPlayerBuff(counter) >= 0 do
         local index, untilCancelled = GetPlayerBuff(counter)
