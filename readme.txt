@@ -1,15 +1,15 @@
-Addon for paladin tanks.
+Addon for paladin tanks. Mostly not to break GCD when swapping librams.
 1) Removes salva if you have righteous fury buff
-2) PaladinTaunt() improved taunt first press cast seal, second casts judgement, nothing is done if judgement is on cooldown
-it also has warning if you forgot your threat buff
-3) PaladinCrusaderStrike() casts crusader strike of max level if not in cooldown and equips Libram of Truth
-4) PaladinConsecration() casts cosecration if not in cooldown and equips Libram of the Faithful
-5) PaladinConsecrationRank1() same but rank1
-6) PaladinBubble() first click to activate divine shield, second to remove it
+2) PaladinConsecration() casts cosecration rank 1 if not in cooldown and equips Libram of the Faithful, use with shift - max rank
+3) PaladinHolyShield() - casts max rank of holy shield and equips Libram of the Dreamguard, can use with shift and ctrl for different options
+4) PaladinHolyStrike() - casts max rank of holy strike and equips Libram of Radiance
+5) PaladinBubble() first click with shift to activate divine shield, second to remove it, use without shift - no cancel
 You will need to create macro like 
-/run PaladinTaunt() 
+/run PaladinConsecration()
 
 Based on 
 Shagu tutorial https://github.com/shagu/wow-vanilla-api/blob/master/tutorial/tutorial-01-enUS.md
 LazyPig https://github.com/Lexiebean/_LazyPig
 Super macro 
+
+by Svarrog
