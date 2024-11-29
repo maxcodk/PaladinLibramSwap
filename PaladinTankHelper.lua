@@ -88,9 +88,14 @@ end
 
 local function CastEquipByName(spellname,itemName)
     local spellname_no_rank = spellname;
+
     if spellname == "Consecration(Rank 1)" then
         spellname_no_rank = "Consecration"
     end
+    if spellname == "Holy Shield(Rank 1)" then
+        spellname_no_rank = "Holy Shield"
+    end 
+
     local spellready = SpellReady(spellname_no_rank);
     if (spellready) then
         if not checkLibramEquip(itemName) then
@@ -100,19 +105,19 @@ local function CastEquipByName(spellname,itemName)
     end
 end
 
-function PaladinTaunt()
-    if PlayerHasBuff("SealOfWrath") then
-        CastSpellByName("Judgement")
-        if not CheckRigteousFurry() then
-            UIErrorsFrame:Clear();
-            UIErrorsFrame:AddMessage("No Rigteous Furry");
-            PlaySound("RaidWarning", "master");
-            SendChatMessage("No Rigteous Furry", "PARTY");
-        end
-    elseif SpellReady("Judgement") then
-        CastSpellByName("Seal of Justice")
-        end
-end
+-- function PaladinTaunt()
+--     if PlayerHasBuff("SealOfWrath") then
+--         CastSpellByName("Judgement")
+--         if not CheckRigteousFurry() then
+--             UIErrorsFrame:Clear();
+--             UIErrorsFrame:AddMessage("No Rigteous Furry");
+--             PlaySound("RaidWarning", "master");
+--             SendChatMessage("No Rigteous Furry", "PARTY");
+--         end
+--     elseif SpellReady("Judgement") then
+--         CastSpellByName("Seal of Justice")
+--         end
+-- end
 
 local function CancelBuff(buff)
     local counter = 0
@@ -133,22 +138,39 @@ local function CancelBuff(buff)
 end
 
 function PaladinConsecration()
-    CastEquipByName("Consecration","Libram of the Faithful");    
+    if not IsShiftKeyDown() then
+        CastEquipByName("Consecration(Rank 1)","Libram of the Faithful");
+    else
+        CastEquipByName("Consecration","Libram of the Faithful");
+    end
 end
 
-function PaladinConsecrationRank1()
-    CastEquipByName("Consecration(Rank 1)","Libram of the Faithful");    
+
+function PaladinHolyShield()
+    if SpellReady("Holy Shield") then
+        if IsControlKeyDown() then
+            CastSpellByName("Holy Shield(Rank 1)");
+        else
+            if not IsShiftKeyDown() then
+                CastEquipByName("Holy Shield","Libram of the Dreamguard");
+            else
+                CastEquipByName("Holy Shield(Rank 1)","Libram of the Dreamguard");
+            end
+        end
+    end
 end
 
-function PaladinCrusaderStrike()
-    CastEquipByName("Crusader Strike","Libram of Truth");
+
+function PaladinHolyStrike()
+    CastEquipByName("Holy Strike","Libram of Radiance");
 end
 
 function PaladinBubble()
-    if not PlayerHasBuff("DivineIntervention") then
+    if IsShiftKeyDown() then
         CastSpellByName("Divine Shield");
-    else
         CancelBuff("DivineIntervention");
+    else    
+        CastSpellByName("Divine Shield");
     end
 end
 
