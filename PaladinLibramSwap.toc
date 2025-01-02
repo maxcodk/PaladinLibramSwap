@@ -1,0 +1,6 @@
+## Interface: 11200
+## Title: |cff3fcf26PaladinLibramSwap|r  |cfff05cdc-Svarrog-|r
+## Version: 1.0
+## Author: Svarrog
+
+PaladinLibramSwap.lua
