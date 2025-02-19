@@ -8,7 +8,7 @@ Addon for paladins. Swaps librams without breaking GCD.
 6) PaladinBubble() first click with shift to activate divine shield, second to remove it, use without shift - no cancel
 You have to create macro in game like 
 /run PaladinConsecration()
-/run CastEquipByName("Holy Shield","Libram of the Dreamguard")
+/run CastEquipByName("Holy Shield","Libram of the Dreamguard") - you can use any libram and spell in this function
 
 Based on 
 Shagu tutorial https://github.com/shagu/wow-vanilla-api/blob/master/tutorial/tutorial-01-enUS.md
