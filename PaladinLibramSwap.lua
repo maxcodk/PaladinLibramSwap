@@ -25,6 +25,12 @@ local function UnitHasDebuff(unit, debuffText)
     return false
 end
 
+local function ItemLinkToName(link)
+	if ( link ) then
+   	return gsub(link,"^.*%[(.*)%].*$","%1");
+	end
+end
+
 local function FindItem(item)
     if ( not item ) then return; end
     item = string.lower(ItemLinkToName(item));
@@ -139,7 +145,7 @@ end
 
 function PaladinConsecration()
     if SpellReady("Consecration") then
-        if IsShiftKeyDown() then
+        if not IsShiftKeyDown() then
             CastEquipByName("Consecration","Libram of the Faithful");
         else
             CastEquipByName("Consecration(Rank 1)","Libram of the Faithful");
@@ -162,7 +168,15 @@ end
 function PaladinHolyStrike()
     if SpellReady("Holy Strike") then
         if (IsSpellInRange("Holy Strike")) == 1 then
-            CastEquipByName("Holy Strike","Libram of Radiance");
+            CastEquipByName("Holy Strike","Libram of the Eternal Tower");
+        end
+    end
+end
+
+function PaladinCrusaderStrike()
+    if SpellReady("Crusader Strike") then
+        if (IsSpellInRange("Crusader Strike")) == 1 then
+            CastEquipByName("Crusader Strike","Libram of the Eternal Tower");
         end
     end
 end
