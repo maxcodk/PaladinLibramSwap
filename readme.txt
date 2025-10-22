@@ -1,5 +1,6 @@
 First install this: https://github.com/pepopo978/nampower
-Addon for paladins. Swaps librams without breaking GCD. 
+Addon for paladins. Swaps librams without triggering GCD. 
+You press one button - you equip libram and use spell in one gcd
 1) Removes salva if you have righteous fury buff(includes https://github.com/maxcodk/PalSalvaRemover)
 2) CastEquipByName(spellname,itemName)
 /run CastEquipByName("Holy Shield","Libram of the Dreamguard") - you can use any libram and spell in this function
@@ -24,4 +25,5 @@ Shagu tutorial https://github.com/shagu/wow-vanilla-api/blob/master/tutorial/tut
 Super macro 
 
 by Svarrog
+
 
