@@ -64,7 +64,7 @@ local function UseItemByName(item)
     local bag,slot = FindItem(item);
     if ( not bag ) then return; end;
     if ( slot ) then
-        UseContainerItem(bag,slot); -- use, equip item in bag
+        if not MerchantFrame:IsShown() then UseContainerItem(bag, slot) end
         return bag, slot;
     else
         UseInventoryItem(bag); -- unequip from body
@@ -110,20 +110,6 @@ function CastEquipByName(spellname,itemName)
         CastSpellByName(spellname);
     end
 end
-
--- function PaladinTaunt()
---     if PlayerHasBuff("SealOfWrath") then
---         CastSpellByName("Judgement")
---         if not CheckRigteousFurry() then
---             UIErrorsFrame:Clear();
---             UIErrorsFrame:AddMessage("No Rigteous Furry");
---             PlaySound("RaidWarning", "master");
---             SendChatMessage("No Rigteous Furry", "PARTY");
---         end
---     elseif SpellReady("Judgement") then
---         CastSpellByName("Seal of Justice")
---         end
--- end
 
 local function CancelBuff(buff)
     local counter = 0
@@ -221,8 +207,8 @@ function CheckRigteousFurry()
     return false
 end
 
+local buff = {"Spell_Holy_SealOfSalvation", "Spell_Holy_GreaterBlessingofSalvation"}
 function CancelSalvationBuff()
-    local buff = {"Spell_Holy_SealOfSalvation", "Spell_Holy_GreaterBlessingofSalvation"}
     local counter = 0
     while GetPlayerBuff(counter) >= 0 do
         local index, untilCancelled = GetPlayerBuff(counter)
