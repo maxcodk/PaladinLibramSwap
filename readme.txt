@@ -1,3 +1,6 @@
+Does not work anymore.
+
+
 First install this: https://github.com/pepopo978/nampower
 Addon for paladins. Swaps librams without triggering GCD. 
 You press one button - you equip libram and use spell in one gcd
